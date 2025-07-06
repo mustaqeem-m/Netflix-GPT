@@ -55,3 +55,17 @@
   npm i firebase
   npm i -g firebase-tools
   firebase login
+  firebase init -> after initialize this it ll create 2 file of firebase config
+
+## Setup gitHub action
+
+- .gitHub/workflows/firebase-hosting.yml
+
+create this file in root and put necessary content in it
+
+- then add github secret
+  - repo -> settings -> Secret and variables -> Actions -> new repo secret
+    name -> FIREBASE_SERVICE_ACCOUNT
+    value -> paste the content from downloaded firebase-admisdk-xxx.json file
+
+firebase-admisdk-xxx.json => firebase console -> ProjectSettings -> serviceAccounts -> Generate new private key
