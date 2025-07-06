@@ -31,4 +31,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           channelId: live
         env:
-          PROJECT_ID: your-firebase-project-id
+          PROJECT_ID: netflixgpt-b9c6a
