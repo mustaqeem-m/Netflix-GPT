@@ -45,3 +45,13 @@
 - refVar.current will hold your value.
 
 - Can be attached to a DOM element using the ref prop.
+
+# Authentication
+
+- here we using google fireBase for our backend
+- `Authentication ensures users are who they claim to be`. Here we used `Firebase Auth` to handle secure user login/signup with session management,
+  avoiding the need to manage `password storage` or `server-side identity checks`
+
+  npm i firebase
+  npm i -g firebase-tools
+  firebase login
