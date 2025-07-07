@@ -8,6 +8,8 @@
 - Signup/SignUp form
 - Form validation
 - useRef hook
+- Firebase configuration
+- Deployed our app to production and hosted it
 
 # Features
 
@@ -52,10 +54,12 @@
 - `Authentication ensures users are who they claim to be`. Here we used `Firebase Auth` to handle secure user login/signup with session management,
   avoiding the need to manage `password storage` or `server-side identity checks`
 
-  npm i firebase
-  npm i -g firebase-tools
-  firebase login
-  firebase init -> after initialize this it ll create 2 file of firebase config
+- npm i firebase
+- npm i -g firebase-tools
+- firebase login
+- firebase init -> select `hosting` ,after initialize this it ll create 2 file of firebase config
+- firebase deploy - for normal app hosting , for github action hosting follow belo steps
+- firebase open hosting:site -> this ll open the hosted site
 
 ## Setup gitHub action
 
@@ -64,8 +68,9 @@
 create this file in root and put necessary content in it
 
 - then add github secret
+
   - repo -> settings -> Secret and variables -> Actions -> new repo secret
     name -> FIREBASE_SERVICE_ACCOUNT
     value -> paste the content from downloaded firebase-admisdk-xxx.json file
 
-firebase-admisdk-xxx.json => firebase console -> ProjectSettings -> serviceAccounts -> Generate new private key
+- firebase-admisdk-xxx.json => firebase console -> ProjectSettings -> serviceAccounts -> Generate new private key

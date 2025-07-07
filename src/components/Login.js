@@ -1,7 +1,8 @@
 import React, { useState,useRef } from 'react'
 import Header from './Header';
 import { checkValidData, ValidateUserName } from '../utils/validate';
-
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
+import {auth} from "../utils/fireBase.js";
 const Login = () => {
   const [isSignInForm, SetIsSignInForm] = useState(true);
 
@@ -19,7 +20,23 @@ const Login = () => {
 
     if(isSignInForm) {
       const result = checkValidData(emailVal,passwordVal);
-      setErrorMessage(result);
+      setErrorMessage(result)
+      if(result) return;
+
+      //signIn logic
+      signInWithEmailAndPassword(auth, emailVal, passwordVal)
+      .then((userCredential) => {
+    // Signed in 
+      const user = userCredential.user;
+      console.log(user);
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setErrorMessage("Invalid Login Credentials");
+      
+  });
+
+
     }else{
       const userNameVal = userName.current?.value;
       const rePasswordValue = rePassword.current?.value;
@@ -42,7 +59,22 @@ const Login = () => {
         return;
       }
 
-      setErrorMessage(null);
+
+      //Signup logic
+
+      createUserWithEmailAndPassword(auth, emailVal, passwordVal)
+      .then((userCredential) => {
+    // Signed up 
+      const user = userCredential.user;
+      console.log(user);
+      }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      setErrorMessage(errorCode +"-"+errorMessage);
+  });   
+
+
     }
 
   }
@@ -94,7 +126,7 @@ const Login = () => {
           placeholder="Re-enter password"
           className="w-full p-3 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-red-700"
         /> : ''}
-        <p className='text-red-600'>{errorMessage}</p>
+        <p className='text-red-600 font-bold'>{errorMessage}</p>
 
         <button className="w-full bg-red-700 hover:bg-red-800 text-white py-3 rounded font-semibold"
         onClick = {
