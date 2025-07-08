@@ -3,7 +3,7 @@ import Header from './Header';
 import { checkValidData, ValidateUserName } from '../utils/validate';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
 import {auth} from "../utils/fireBase.js";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
   const [isSignInForm, SetIsSignInForm] = useState(true);
@@ -33,8 +33,8 @@ const Login = () => {
       console.log(user);
       navigate('/browse');
     }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
       setErrorMessage("Invalid Login Credentials");
       
   });
