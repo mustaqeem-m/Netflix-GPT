@@ -1,12 +1,18 @@
 import React from 'react';
-import { signOut } from 'firebase/auth';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../utils/fireBase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addUser, removeUser } from '../utils/Slices/UserSlice.js';
+import { NETFLIX_LOGO } from '../utils/Constants.js';
 
 const Header = () => {
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -16,14 +22,34 @@ const Header = () => {
         navigate('/error');
       });
   };
+
+  useEffect(() => {
+    const unSubscibe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uId: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate('/Browse');
+      } else {
+        dispatch(removeUser());
+        navigate('/');
+      }
+
+      return () => {
+        unSubscibe();
+      };
+    });
+  }, [dispatch, navigate]);
   return (
     <div className="absolute z-10 bg-gradient-to-b from-black w-screen flex justify-between">
-      <img
-        className="w-44 p-3 m-3 "
-        src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-        alt="netflix_logo"
-      />
-      {user && (
+      <img className="w-44 p-3 m-3 " src={NETFLIX_LOGO} alt="netflix_logo" />
+      {user?.email && location.pathname !== '/' && (
         <div className="flex">
           <img
             className="w-8 mx-6 my-7 rounded-sm"

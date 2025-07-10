@@ -12,6 +12,10 @@
 - Deployed our app to production and hosted it
 - SetUp signIn/signUp Create account and authentication using firebase
 - SetUp redux store created UserSlice
+- BugFix: after signup displayName and userProfile updates
+- BugFix: if the user is not logged in redirect /browse to /login page and vice-versa
+- onAuthStateChange - unsubcribe when component unmounts
+- Add hard coded Values to the constant file
 
 # Features
 
@@ -70,7 +74,6 @@
 create this file in root and put necessary content in it
 
 - then add github secret
-
   - repo -> settings -> Secret and variables -> Actions -> new repo secret
     name -> FIREBASE_SERVICE_ACCOUNT
     value -> paste the content from downloaded firebase-admisdk-xxx.json file
@@ -82,6 +85,26 @@ create this file in root and put necessary content in it
 - when a action like signIn , SignUp or SignOut this onAuthStateChange is called this is provided by fireBase
 - so when we dispatch a action we dont need to use the `dispatch()` method here and there in our code wherever the signIn\SignUp logic occurs
 - It eliminates the need of using that in multiple places , we can use our dispatch() action method in one place ,
-- it ll trigger the dispatch() when the user signIn/signOut/signUp , just like a event Listenerk
+- it ll trigger the dispatch() when the user signIn/signOut/signUp , just like a event Listener.
+- it returns a unsubbscribe function used to unsubscribe this method when the corresponding component unmounts - good practise!
 
 Note: <const dispatch = UseDispatch()> always use this at top of the component when using dispatch();
+
+# useLocation()
+
+- `useLocation` Hook — React Router DOM
+
+- What It Does:
+  - Gives access to the current location object.
+
+  - Used to read data like pathname, search params, state, and hash.
+
+  - Get current route info
+
+  - Conditionally render content based on location
+
+  - Access route state (e.g., redirect history)
+
+  - Highlight active navigation tabs
+
+eg. - location.pathName === '/browse`

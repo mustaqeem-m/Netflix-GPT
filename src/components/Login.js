@@ -7,12 +7,11 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { auth } from '../utils/fireBase.js';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/Slices/UserSlice.js';
+import { BG_IMAGE, USER_AVATAR } from '../utils/Constants.js';
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [isSignInForm, SetIsSignInForm] = useState(true);
 
   const email = useRef(null);
@@ -36,8 +35,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate('/browse');
         })
         .catch((error) => {
           // const errorCode = error.code;
@@ -74,7 +71,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: userNameVal,
-            photoURL: 'https://avatars.githubusercontent.com/u/128311122?v=4',
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -87,8 +84,6 @@ const Login = () => {
                 })
               );
               console.log(user);
-
-              navigate('/browse');
             })
             .catch((error) => {
               setErrorMessage(errorMessage);
@@ -111,10 +106,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/05e91faa-6f6d-4325-934e-5418dcc2567b/web/IN-en-20250630-TRIFECTA-perspective_159086b1-425f-435b-bcd5-1ed8039cdef9_large.jpg"
-          alt="bg-image"
-        />
+        <img src={BG_IMAGE} alt="bg-image" />
       </div>
 
       <form
