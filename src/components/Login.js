@@ -83,7 +83,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              console.log(user);
             })
             .catch((error) => {
               setErrorMessage(errorMessage);

@@ -16,6 +16,7 @@
 - BugFix: if the user is not logged in redirect /browse to /login page and vice-versa
 - onAuthStateChange - unsubcribe when component unmounts
 - Add hard coded Values to the constant file
+- Get data form TMDB now playing movie list using API
 
 # Features
 
@@ -108,3 +109,25 @@ Note: <const dispatch = UseDispatch()> always use this at top of the component w
   - Highlight active navigation tabs
 
 eg. - location.pathName === '/browse`
+
+# TMDB
+
+- here we can able to get the data related for building our browse page (i.e) all latest movie data -> The Movie DataBase
+
+- Login-> Edit profile -> API
+
+# why every api calls redux store actions etc .. are happening twice?
+
+- It's because of our app is under react strict mode
+- React strict mode just made this kinda of stuff happen twice to check any inconsistency or any error occur in rendering cycle in developement phase
+- But it wont happen in our production build our production build this things hapnnens only once
+
+# Browse page sections
+
+       * Netflix page is sectioned by
+       * - Main container
+       *    - Movie trailer in background
+       *    - Movie title and that corresponding movie related things
+       * - Secondary container
+       *    - movie List * n
+       *    - movie cards * n
