@@ -1,49 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { API_OPTIONS } from '../utils/Constants';
-
+import { useSelector } from 'react-redux';
+import useGetMovieTrailer from '../hooks/useGetMovieTrailer';
+import { useMemo } from 'react';
 const VideoBackGround = ({ movieId }) => {
-  const [trailerKey, setTrailerKey] = useState(null);
+  const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
 
-  // fetching movie video using TMDB
-  const getMovieTrailer = async () => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
-      API_OPTIONS
-    );
-    const json = await data.json();
+  useGetMovieTrailer(movieId);
 
-    let trailer = json.results.find(
-      (video) => video.name === 'Official Trailer'
-    );
-
-    //fallback
-    if (!trailer && json.results.length > 0) {
-      trailer = json.results[0];
-    }
-
-    if (trailer) {
-      setTrailerKey(trailer.key);
-    }
-    console.log(trailer);
-  };
-  useEffect(() => {
-    if (movieId) getMovieTrailer();
-  }, []);
-
-  return (
-    <div>
+  const iframe = useMemo(() => {
+    if (!trailerVideo?.key) return <p>Trailer is Loading.....</p>;
+    return (
       <iframe
-        width="560"
-        height="315"
-        src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1`}
+        className="w-screen aspect-video"
+        src={`https:/www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&playsinline=1`}
         title="YouTube video player"
-        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
       ></iframe>
-    </div>
-  );
+    );
+  }, [trailerVideo?.key]);
+
+  return <div>{iframe}</div>;
 };
 
 export default VideoBackGround;

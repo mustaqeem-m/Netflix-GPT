@@ -5,7 +5,7 @@ export const USER_AVATAR =
   'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png';
 
 export const BG_IMAGE =
-  'https://assets.nflxext.com/ffe/siteui/vlv3/05e91faa-6f6d-4325-934e-5418dcc2567b/web/IN-en-20250630-TRIFECTA-perspective_159086b1-425f-435b-bcd5-1ed8039cdef9_large.jpg';
+  'https://assets.nflxext.com/ffe/siteui/vlv3/7d2359a4-434f-4efa-9ff3-e9d38a8bde7f/web/IN-en-20250707-TRIFECTA-perspective_4faa9280-a2c5-4e07-aafc-a45ce43fea09_large.jpg';
 
 export const NOW_PLAYING_URL =
   'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';

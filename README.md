@@ -17,6 +17,14 @@
 - onAuthStateChange - unsubcribe when component unmounts
 - Add hard coded Values to the constant file
 - Get data form TMDB now playing movie list using API
+- Custome hook fro nowPlayingMovies
+- created movieSlice
+- Update store with movie data
+- Planning main & secondary container
+- Fetch data for trailer video using a custom hook
+- update store with trailer video data
+- Embedded the youtube video and make it autoPlay and mute
+- Tuned some tailwind to enchance look
 
 # Features
 
@@ -131,3 +139,8 @@ eg. - location.pathName === '/browse`
        * - Secondary container
        *    - movie List * n
        *    - movie cards * n
+
+# For storing data
+
+- we can use both state variables or redux stores
+- here we used redux store
