@@ -32,3 +32,10 @@ export const API_OPTIONS = {
       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYTkzODgwMDA1MGUyNzRmYTk4NThkMWEwZTgzYzUzMiIsIm5iZiI6MTc1MjExMTIzMy4yNTMsInN1YiI6IjY4NmYxODgxNTRkYzk4ODc0YWJhMjRhYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.i6zak3HPY_mrMeJehaN3yHbaix3b41IIvF6cm1vOV3Q',
   },
 };
+
+export const SUPPORTED_LANG = [
+  { identifier: 'en', name: 'English' },
+  { identifier: 'hindi', name: 'Hindi' },
+  { identifier: 'spanish', name: 'Spanish' },
+  { identifier: 'tamil', name: 'Tamil' },
+];

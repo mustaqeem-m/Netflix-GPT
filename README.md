@@ -25,6 +25,15 @@
 - update store with trailer video data
 - Embedded the youtube video and make it autoPlay and mute
 - Tuned some tailwind to enchance look
+- Build secondary container
+- BUild movielist
+- Build moviecard -> Using TMDB Image CN URL
+- Enchanced the look of Browse page using taailwind
+- Created custom hooks for corresponding MovieList to fetch movies and update the store
+- Build GPT search feature
+- Build GPT searcg page
+- Build GPT searchBar
+- Made Gpt Search page multi-lingual
 
 # Features
 
@@ -144,3 +153,5 @@ eg. - location.pathName === '/browse`
 
 - we can use both state variables or redux stores
 - here we used redux store
+
+### Note => never push console.log() in production code
