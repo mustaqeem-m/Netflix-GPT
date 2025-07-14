@@ -5,7 +5,7 @@ const VideoTitle = ({ title, overview, poster_path }) => {
   useGetMovieImage(title);
   return (
     <div className="w-screen aspect-video pt-[15%] px-[20] absolute  text-white bg-gradient-to-r from-black">
-      <h1 className="pt-44 px-12 text-5xl">{title}</h1>
+      <h1 className="pt-24 px-12 text-5xl">{title}</h1>
       <p className="pt-5 w-1/4 px-12 ">{overview}</p>
 
       <div className="flex">

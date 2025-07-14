@@ -10,6 +10,8 @@ export const BG_IMAGE =
 export const NOW_PLAYING_URL =
   'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
 
+export const POSTER_IMG_URL = 'https://image.tmdb.org/t/p/w400/';
+
 export const API_OPTIONS = {
   method: 'GET',
   headers: {
