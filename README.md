@@ -191,13 +191,33 @@ This keeps your API usage secure and protects your account.
 
 - WHILE storing the keys or secret naming convention starts with REACT*APP*.. is must so that react ll understand it
 
-# Problem - every time we navigating to home and gpt search page our app make API calls again and again , even though data is already stored in that store
+### Problem - every time we navigating to home and gpt search page our app make API calls again and again , even though data is already stored in that store
 
 - Fix -> Memoization
 - Checking the store if it had already has the corresponding data which i make API call for , if it had we tell our app dont make API calls we already have this data in or store
 
-## Task-1 -> When click on a movie card an new popup page ll come and show its trailer and movie details with description
+### Task-1 -> When click on a movie card an new popup page ll come and show its trailer and movie details with description
 
-## Task-2 -> Ask user for their OpenAI API key inorer to cut our billing
+### Task-2 -> Ask user for their OpenAI API key inorer to cut our billing
 
-# Making app responsiveK
+# Making app responsive
+
+Note -> Every variable or function you use inside useEffect must be listed in its dependency array, unless you're 100% sure it will never change.
+
+Why not define `getMovieTrailer` normally?
+In React:
+
+Functions declared outside useEffect are re-created on every render
+
+If we include such a function in the useEffect dependency array, React will treat it as "changed" every time → causing unnecessary re-renders or infinite loops
+
+💡 Why useCallback works:
+useCallback memoizes the function
+
+So getMovieTrailer only changes when movieId or dispatch change
+
+This keeps useEffect stable and predictable
+
+This hook fetches TV series only once on mount.
+getTvSeries is memoized using useCallback, and the effect depends on tvSeries and getTvSeries.
+There’s no loop, because the fetch is skipped after the store has valid data.
