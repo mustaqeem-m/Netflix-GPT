@@ -2,12 +2,11 @@ import MovieCard from './MovieCard';
 
 const MovieList = ({ title, movies }) => {
   if (!movies || movies.length === 0) return null;
-  console.log(movies[0].poster_path);
   return (
     <div className=" text-white w-full overflow-hidden ">
       <h1 className="pt-10 pl-7 text-2xl font-semibold">{title}</h1>
 
-      <div className="flex overflow-x-auto scrollbar-hide space-x-4 px-4 py-4">
+      <div className="flex overflow-x-auto scrollbar-hide space-x-8 px-4 py-4">
         {movies.map((movies) => (
           <MovieCard
             key={movies.id}

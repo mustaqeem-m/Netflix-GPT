@@ -18,7 +18,7 @@ const VideoBackGround = ({ movieId }) => {
     );
   }, [trailerVideo?.key]);
 
-  return <div>{iframe}</div>;
+  return <div className="rounded-3xl">{iframe}</div>;
 };
 
 export default VideoBackGround;

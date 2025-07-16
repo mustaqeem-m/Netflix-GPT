@@ -155,3 +155,27 @@ eg. - location.pathName === '/browse`
 - here we used redux store
 
 ### Note => never push console.log() in production code
+
+## ⚠️ Security Notice
+
+This project previously used the OpenAI API key directly in the frontend (browser), which is **not secure**.
+
+API keys must be kept secret and should never be exposed to the browser environment. Doing so can lead to:
+
+- Unauthorized use of your API key
+- Unexpected billing on your OpenAI account
+- Suspension of your account due to misuse
+
+### ✅ Recommended Setup
+
+To fix this:
+
+1. Create a backend using Node.js / Express, or use serverless functions (Vercel/Firebase/etc.)
+2. Store your OpenAI API key in environment variables
+3. Call OpenAI's API from your backend only
+4. Let the frontend call your backend (not OpenAI directly)
+
+- its not secure to call openAI directly using frontend (client-side) there is a chance of key is exposed or stolen , so it ll throw us an error if we do it so,
+  the openAI call using API is only done using backend(server-side) securely.
+
+This keeps your API usage secure and protects your account.

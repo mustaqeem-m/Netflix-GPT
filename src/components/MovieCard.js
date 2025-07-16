@@ -2,6 +2,7 @@ import React from 'react';
 import { POSTER_IMG_URL } from '../utils/Constants';
 
 const MovieCard = ({ posterPath, title }) => {
+  if (!posterPath) return null;
   return (
     <div className="min-w-[150px] transition-transform duration-300 transform hover:scale-105 flex-shrink-0">
       <img
