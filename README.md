@@ -34,6 +34,13 @@
 - Build GPT searcg page
 - Build GPT searchBar
 - Made Gpt Search page multi-lingual
+- Get openAI api key
+- Fetched Movie Suggestion from TMDB using OpenAI API
+- created gptSlice added data on that
+- Reused MovieList component to make movie suggestion cointainer
+- Memozation
+- Added .env file and save that to .gitignore
+- Made our site responsive
 
 # Features
 

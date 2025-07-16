@@ -57,11 +57,15 @@ const Header = () => {
     });
   }, [dispatch, navigate]);
   return (
-    <div className="absolute z-10 bg-gradient-to-b from-black w-screen flex justify-between items-center px-6 h-20">
-      <img className="w-44" src={NETFLIX_LOGO} alt="netflix_logo" />
+    <div className="absolute z-10 md:bg-gradient-to-b from-black w-screen flex flex-col md:flex-row justify-between items-center px-6 h-20  ">
+      <img
+        className="w-44 mx-auto md:mx-0 pt-6 md:pt-0 pb-5 md:pb-0"
+        src={NETFLIX_LOGO}
+        alt="netflix_logo"
+      />
 
       {user?.email && location.pathname !== '/' && (
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-5 md:space-x-4 ">
           {showGptSearch && (
             <select
               className="m-4 px-4 py-[5px] rounded-md bg-gray-800 text-white "
@@ -82,7 +86,7 @@ const Header = () => {
             {!showGptSearch ? 'GPT Search' : '🏠 Home'}
           </button>
           <img
-            className="w-8 h-8 rounded-sm"
+            className="hidden md:block w-8 h-8 rounded-sm"
             alt="userIcon"
             src={user?.photoURL}
           />
