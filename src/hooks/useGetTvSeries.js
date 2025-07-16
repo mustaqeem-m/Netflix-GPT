@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { API_OPTIONS, TV_SERIES_URL } from '../utils/Constants';
 import { addTvSeries } from '../utils/Slices/movieSlice';
 import { useEffect } from 'react';
@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 const useGetTvSeries = () => {
   const dispatch = useDispatch();
+  const tvSeries = useSelector((store) => store.movies?.tvSeries);
   const getTvSeries = async () => {
     const data = await fetch(TV_SERIES_URL, API_OPTIONS);
     const json = await data.json();
@@ -15,7 +16,7 @@ const useGetTvSeries = () => {
   };
 
   useEffect(() => {
-    getTvSeries();
+    !tvSeries && getTvSeries();
   }, []);
 };
 

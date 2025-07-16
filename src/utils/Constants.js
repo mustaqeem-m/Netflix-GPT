@@ -24,12 +24,13 @@ export const TV_SERIES_URL =
 
 export const POSTER_IMG_URL = 'https://image.tmdb.org/t/p/w400/';
 
+export const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_KEY;
+
 export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYTkzODgwMDA1MGUyNzRmYTk4NThkMWEwZTgzYzUzMiIsIm5iZiI6MTc1MjExMTIzMy4yNTMsInN1YiI6IjY4NmYxODgxNTRkYzk4ODc0YWJhMjRhYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.i6zak3HPY_mrMeJehaN3yHbaix3b41IIvF6cm1vOV3Q',
+    Authorization: 'Bearer ' + process.env.REACT_APP_TMDB_KEY,
   },
 };
 

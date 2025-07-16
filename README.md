@@ -179,3 +179,18 @@ To fix this:
   the openAI call using API is only done using backend(server-side) securely.
 
 This keeps your API usage secure and protects your account.
+
+### Note -> Create a .env file that stores all the secrets in our project like API_KEYS , project core secrets etc..
+
+- WHILE storing the keys or secret naming convention starts with REACT*APP*.. is must so that react ll understand it
+
+# Problem - every time we navigating to home and gpt search page our app make API calls again and again , even though data is already stored in that store
+
+- Fix -> Memoization
+- Checking the store if it had already has the corresponding data which i make API call for , if it had we tell our app dont make API calls we already have this data in or store
+
+## Task-1 -> When click on a movie card an new popup page ll come and show its trailer and movie details with description
+
+## Task-2 -> Ask user for their OpenAI API key inorer to cut our billing
+
+# Making app responsiveK

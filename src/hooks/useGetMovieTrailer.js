@@ -1,10 +1,11 @@
 import { API_OPTIONS } from '../utils/Constants';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTrailerVideo } from '../utils/Slices/movieSlice';
 import { useEffect } from 'react';
 
 const useGetMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
+  const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
   // fetching movie video using TMDB
   const getMovieTrailer = async () => {
     const data = await fetch(
@@ -27,8 +28,11 @@ const useGetMovieTrailer = (movieId) => {
       // console.log(trailer);
     }
   };
+  // useEffect(() => {
+  //   !trailerVideo && getMovieTrailer();
+  // });
   useEffect(() => {
-    if (movieId) getMovieTrailer();
+    if (movieId && !trailerVideo) getMovieTrailer();
   }, [movieId, dispatch]);
 };
 
