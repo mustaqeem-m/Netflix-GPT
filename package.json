@@ -2,7 +2,6 @@
   "name": "netflix-gpt",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://netflixgpt-b9c6a.web.app",
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@testing-library/dom": "^10.4.0",
@@ -24,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && firebase deploy --project netflixgpt-b9c6a"
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [
