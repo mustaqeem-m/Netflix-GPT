@@ -7,8 +7,8 @@ const GptMovieSuggestions = () => {
     (store) => store.gpt
   );
 
-  console.log('movieNames:', searchMovieNames);
-  console.log('movieList:', searchMovieList);
+  // console.log('movieNames:', searchMovieNames);
+  // console.log('movieList:', searchMovieList);
 
   if (!searchMovieNames || searchMovieNames.length === 0) {
     return (

@@ -1,8 +1,8 @@
-import useGetMovieImage from '../hooks/useGetMovieImage';
+// import useGetMovieImage from '../hooks/useGetMovieImage';
 import { FaInfoCircle } from 'react-icons/fa';
 
 const VideoTitle = ({ title, overview, poster_path }) => {
-  useGetMovieImage(title);
+  // useGetMovieImage(title);
   return (
     <div className="w-screen aspect-video pt-[15%] px-[20] absolute text-white/90 md:text-white bg-gradient-to-r from-black/80 md:from-black">
       <h1 className="pt-10 md:pt-24 px-12 text-2xl md:text-5xl">{title}</h1>

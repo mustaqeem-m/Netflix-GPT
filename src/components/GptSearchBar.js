@@ -23,7 +23,7 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
+    // console.log(searchText.current.value);
     // API call for openAI
     const response = await client.chat.completions.create({
       model: 'gpt-3.5-turbo-0125',
@@ -47,7 +47,7 @@ const GptSearchBar = () => {
     //  Now we got movie name like moviea, movieb, ..., moviee
     const gptMovies = response.choices[0]?.message?.content.split(', ');
     if (!gptMovies) return;
-    console.log(gptMovies);
+    // console.log(gptMovies);
 
     //convert tht into array of movies []
     // search that movies using TMDB search api
@@ -56,7 +56,7 @@ const GptSearchBar = () => {
     //[prmoise, promise, ....]
 
     const resolvedMovieList = await Promise.all(promiseMovieArr);
-    console.log(resolvedMovieList);
+    // console.log(resolvedMovieList);
 
     dispatch(
       addSearchMovieList({

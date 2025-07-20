@@ -31,7 +31,7 @@ const Header = () => {
   };
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e.target?.value));
-    console.log(e.target?.value);
+    // console.log(e.target?.value);
   };
   useEffect(() => {
     const unSubscibe = onAuthStateChanged(auth, (user) => {
@@ -59,9 +59,9 @@ const Header = () => {
   return (
     <div className="absolute z-10 md:bg-gradient-to-b from-black w-screen flex flex-col md:flex-row justify-between items-center px-6 h-20  ">
       <img
-        className="w-44 mx-auto md:mx-0 pt-6 md:pt-0 pb-5 md:pb-0"
+        className="w-44 mx-auto md:mx-0 pt-6 md:pt-0 pb-5 md:pb-0 object-contain"
         src={NETFLIX_LOGO}
-        alt="netflix_logo"
+        alt="moviegpt_logo"
       />
 
       {user?.email && location.pathname !== '/' && (
